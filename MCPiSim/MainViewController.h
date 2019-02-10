@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpriteKit/SpriteKit.h>
 
-@interface ViewController : UIViewController
+#import "PSMainScene.h"
+
+@interface MainViewController : UIViewController
 
 
 @end

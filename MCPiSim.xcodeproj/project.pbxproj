@@ -8,24 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		17CA466A221027C000E7A6BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA4669221027C000E7A6BD /* AppDelegate.m */; };
-		17CA466D221027C000E7A6BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA466C221027C000E7A6BD /* ViewController.m */; };
+		17CA466D221027C000E7A6BD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA466C221027C000E7A6BD /* MainViewController.m */; };
 		17CA4670221027C000E7A6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CA466E221027C000E7A6BD /* Main.storyboard */; };
 		17CA4672221027C300E7A6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CA4671221027C300E7A6BD /* Assets.xcassets */; };
 		17CA4675221027C300E7A6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CA4673221027C300E7A6BD /* LaunchScreen.storyboard */; };
 		17CA4678221027C300E7A6BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA4677221027C300E7A6BD /* main.m */; };
+		17CA4681221029C100E7A6BD /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA4680221029C100E7A6BD /* SpriteKit.framework */; };
+		17CA468422102A3800E7A6BD /* PSSpriteShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA468322102A3800E7A6BD /* PSSpriteShapeNode.m */; };
+		17CA46882210307C00E7A6BD /* PSMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA46872210307C00E7A6BD /* PSMainScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		17CA4665221027C000E7A6BD /* MCPiSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPiSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CA4668221027C000E7A6BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17CA4669221027C000E7A6BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		17CA466B221027C000E7A6BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		17CA466C221027C000E7A6BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		17CA466B221027C000E7A6BD /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		17CA466C221027C000E7A6BD /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		17CA466F221027C000E7A6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		17CA4671221027C300E7A6BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17CA4674221027C300E7A6BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17CA4676221027C300E7A6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CA4677221027C300E7A6BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		17CA4680221029C100E7A6BD /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		17CA468222102A3800E7A6BD /* PSSpriteShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSSpriteShapeNode.h; sourceTree = "<group>"; };
+		17CA468322102A3800E7A6BD /* PSSpriteShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSSpriteShapeNode.m; sourceTree = "<group>"; };
+		17CA46862210307C00E7A6BD /* PSMainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMainScene.h; sourceTree = "<group>"; };
+		17CA46872210307C00E7A6BD /* PSMainScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMainScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CA4681221029C100E7A6BD /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +53,7 @@
 			children = (
 				17CA4667221027C000E7A6BD /* MCPiSim */,
 				17CA4666221027C000E7A6BD /* Products */,
+				17CA467F221029C100E7A6BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,10 +68,12 @@
 		17CA4667221027C000E7A6BD /* MCPiSim */ = {
 			isa = PBXGroup;
 			children = (
+				17CA46852210302F00E7A6BD /* scenes */,
+				17CA467E2210284100E7A6BD /* models */,
 				17CA4668221027C000E7A6BD /* AppDelegate.h */,
 				17CA4669221027C000E7A6BD /* AppDelegate.m */,
-				17CA466B221027C000E7A6BD /* ViewController.h */,
-				17CA466C221027C000E7A6BD /* ViewController.m */,
+				17CA466B221027C000E7A6BD /* MainViewController.h */,
+				17CA466C221027C000E7A6BD /* MainViewController.m */,
 				17CA466E221027C000E7A6BD /* Main.storyboard */,
 				17CA4671221027C300E7A6BD /* Assets.xcassets */,
 				17CA4673221027C300E7A6BD /* LaunchScreen.storyboard */,
@@ -69,6 +81,32 @@
 				17CA4677221027C300E7A6BD /* main.m */,
 			);
 			path = MCPiSim;
+			sourceTree = "<group>";
+		};
+		17CA467E2210284100E7A6BD /* models */ = {
+			isa = PBXGroup;
+			children = (
+				17CA468222102A3800E7A6BD /* PSSpriteShapeNode.h */,
+				17CA468322102A3800E7A6BD /* PSSpriteShapeNode.m */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		17CA467F221029C100E7A6BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17CA4680221029C100E7A6BD /* SpriteKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		17CA46852210302F00E7A6BD /* scenes */ = {
+			isa = PBXGroup;
+			children = (
+				17CA46862210307C00E7A6BD /* PSMainScene.h */,
+				17CA46872210307C00E7A6BD /* PSMainScene.m */,
+			);
+			name = scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17CA466D221027C000E7A6BD /* ViewController.m in Sources */,
+				17CA466D221027C000E7A6BD /* MainViewController.m in Sources */,
 				17CA4678221027C300E7A6BD /* main.m in Sources */,
+				17CA46882210307C00E7A6BD /* PSMainScene.m in Sources */,
 				17CA466A221027C000E7A6BD /* AppDelegate.m in Sources */,
+				17CA468422102A3800E7A6BD /* PSSpriteShapeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
