@@ -23,12 +23,16 @@
     //NSLog(@"safeArea.bottom: %f",self.view.safeAreaInsets.bottom);
     size.height = size.height-self.view.safeAreaInsets.bottom;
     NSLog(@"final size: %f",size.height);
-    PSMainScene *scene = [PSMainScene scene:size];
+    PSMainScene *scene = [PSMainScene sceneWithSize:size];
     
     SKView *view = (SKView *)self.view;
     [view presentScene:scene];
     view.showsNodeCount = YES;
     view.showsFPS = YES;
+    
+    PSButtonShapeNode *button = [PSButtonShapeNode buttonWithTitle:@"Test" color:[UIColor blueColor] pressedColor:[UIColor redColor]];
+    NSLog(@"%@",button);
+    NSLog(@"%d",button.enabled);
 }
 
 

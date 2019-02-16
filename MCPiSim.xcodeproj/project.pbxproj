@@ -16,6 +16,7 @@
 		17CA4681221029C100E7A6BD /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA4680221029C100E7A6BD /* SpriteKit.framework */; };
 		17CA468422102A3800E7A6BD /* PSSpriteShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA468322102A3800E7A6BD /* PSSpriteShapeNode.m */; };
 		17CA46882210307C00E7A6BD /* PSMainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA46872210307C00E7A6BD /* PSMainScene.m */; };
+		17CA468B221859B600E7A6BD /* PSButtonShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA468A221859B600E7A6BD /* PSButtonShapeNode.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		17CA468322102A3800E7A6BD /* PSSpriteShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSSpriteShapeNode.m; sourceTree = "<group>"; };
 		17CA46862210307C00E7A6BD /* PSMainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSMainScene.h; sourceTree = "<group>"; };
 		17CA46872210307C00E7A6BD /* PSMainScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSMainScene.m; sourceTree = "<group>"; };
+		17CA4689221859B600E7A6BD /* PSButtonShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSButtonShapeNode.h; sourceTree = "<group>"; };
+		17CA468A221859B600E7A6BD /* PSButtonShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSButtonShapeNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,8 @@
 				17CA4673221027C300E7A6BD /* LaunchScreen.storyboard */,
 				17CA4676221027C300E7A6BD /* Info.plist */,
 				17CA4677221027C300E7A6BD /* main.m */,
+				17CA4689221859B600E7A6BD /* PSButtonShapeNode.h */,
+				17CA468A221859B600E7A6BD /* PSButtonShapeNode.m */,
 			);
 			path = MCPiSim;
 			sourceTree = "<group>";
@@ -179,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17CA468B221859B600E7A6BD /* PSButtonShapeNode.m in Sources */,
 				17CA466D221027C000E7A6BD /* MainViewController.m in Sources */,
 				17CA4678221027C300E7A6BD /* main.m in Sources */,
 				17CA46882210307C00E7A6BD /* PSMainScene.m in Sources */,

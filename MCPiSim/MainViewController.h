@@ -10,6 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 
 #import "PSMainScene.h"
+#import "PSButtonShapeNode.h"
 
 @interface MainViewController : UIViewController
 
