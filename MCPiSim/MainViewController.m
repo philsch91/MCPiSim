@@ -30,7 +30,7 @@
     view.showsNodeCount = YES;
     view.showsFPS = YES;
     
-    PSButtonShapeNode *button = [PSButtonShapeNode buttonWithTitle:@"Test" color:[UIColor blueColor] pressedColor:[UIColor redColor]];
+    PSButtonShapeNode *button = [PSButtonShapeNode buttonWithText:@"Test" color:[UIColor blueColor] pressedColor:[UIColor redColor]];
     NSLog(@"%@",button);
     NSLog(@"%d",button.enabled);
 }

@@ -12,12 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface PSButtonShapeNode : SKShapeNode
 
-@property (nonatomic, assign) BOOL enabled;
+@property (nonatomic) BOOL enabled;
 @property (nonatomic) BOOL selected;
+@property (nonatomic, strong) SKColor *color;
+@property (nonatomic, strong) SKColor *pressedColor;
 
-@property (nonatomic, readonly, strong) SKLabelNode *title;
+@property (nonatomic, strong) SKLabelNode *text;
 
-+ (instancetype)buttonWithTitle:(NSString *)title color:(SKColor *)color pressedColor:(SKColor *)pressedColor;
++ (instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor;
 
 @end
 

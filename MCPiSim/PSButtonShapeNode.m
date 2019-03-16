@@ -18,12 +18,16 @@
     return self;
 }
 
-+ (instancetype)buttonWithTitle:(NSString *)title color:(SKColor *)color pressedColor:(SKColor *)pressedColor{
++ (instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor{
     PSButtonShapeNode *node = [super shapeNodeWithRect:CGRectMake(0, 0, 100, 44) cornerRadius:10];
     if(node){
-        NSLog(@"test");
-        node.strokeColor = color;
-        node.fillColor = color;
+        node.text = [SKLabelNode labelNodeWithText:text];
+        node.text.fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
+        node.text.fontSize = [UIFont buttonFontSize];
+        node.color = color;
+        node.pressedColor = pressedColor;
+        node.strokeColor = node.color;
+        node.fillColor = node.color;
         node.glowWidth = 1;
         node.enabled = NO;
     }
@@ -31,7 +35,7 @@
 }
 
 - (NSString *)description{
-    NSString *strDescription = [NSString stringWithFormat:@"<PSButtonShapeNode x: %f y: %f>",self.frame.origin.x, self.frame.origin.y];
+    NSString *strDescription = [NSString stringWithFormat:@"<%@ text:%@ color:%@ pressedColor:%@>",[self class], self.text, self.color, self.pressedColor];
     strDescription = [strDescription stringByAppendingString:@" subclass of "];
     strDescription = [strDescription stringByAppendingString:[super description]];
     return strDescription;

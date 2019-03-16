@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import <MonteCarloKit/MonteCarloKit.h>
 
 #import "PSMainScene.h"
 #import "PSButtonShapeNode.h"
