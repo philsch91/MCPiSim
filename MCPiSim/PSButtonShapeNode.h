@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) SKLabelNode *text;
 
+@property (nonatomic, weak) NSObject *target;
+@property (nonatomic, assign) SEL selector;
+
++ (instancetype)buttonWithText:(NSString *)text;
 + (instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor;
 
 @end
