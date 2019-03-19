@@ -34,8 +34,17 @@
     PSButtonShapeNode *button = [PSButtonShapeNode buttonWithText:@"Test"];
     NSLog(@"%@",button);
     NSLog(@"%d",button.enabled);
+    button.position = CGPointMake((scene.frame.size.width/2), (scene.frame.size.height/3));
     
     [scene addChild:button];
+    
+    [button setEnabled:YES];
+    NSLog(@"%d",button.enabled);
+    [button setTouchDown:self selector:@selector(test)];
+}
+
+-(void)test{
+    NSLog(@"test");
 }
 
 

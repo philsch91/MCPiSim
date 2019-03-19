@@ -19,11 +19,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) SKLabelNode *text;
 
-@property (nonatomic, weak) NSObject *target;
-@property (nonatomic, assign) SEL selector;
+@property (nonatomic, weak) NSObject *targetTouchUp;
+@property (nonatomic, weak) NSObject *targetTouchUpInside;
+@property (nonatomic, weak) NSObject *targetTouchDown;
+
+@property (nonatomic, assign) SEL selectorTouchUp;
+@property (nonatomic, assign) SEL selectorTouchUpInside;
+@property (nonatomic, assign) SEL selectorTouchDown;
 
 + (instancetype)buttonWithText:(NSString *)text;
 + (instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor;
+
+-(void)setTouchUp:(NSObject *)target selector:(SEL)selector;
+-(void)setTouchUpInside:(NSObject *)target selector:(SEL)selector;
+-(void)setTouchDown:(NSObject *)target selector:(SEL)selector;
 
 @end
 
