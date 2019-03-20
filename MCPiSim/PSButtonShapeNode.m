@@ -25,6 +25,7 @@
         [node addChild:node.text];
         //[node.text setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter];
         [node.text setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
+        //node.text.position = node.position;
         node.text.fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
         node.text.fontSize = [UIFont buttonFontSize];
         node.text.position = CGPointMake((node.frame.size.width/2)-(node.text.frame.size.width/2),(node.frame.size.height/2) -(node.text.frame.size.height/2));
@@ -35,6 +36,7 @@
         node.fillColor = node.color;
         node.glowWidth = 1;
         node.enabled = NO;
+        [node setUserInteractionEnabled:YES];
     }
     return node;
 }
@@ -43,15 +45,20 @@
     PSButtonShapeNode *node = [super shapeNodeWithRect:CGRectMake(0, 0, 100, 44) cornerRadius:10];
     if(node){
         node.text = [SKLabelNode labelNodeWithText:text];
-        node.text.position = node.position;
+        [node addChild:node.text];
+        //[node.text setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter];
+        [node.text setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
         node.text.fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
         node.text.fontSize = [UIFont buttonFontSize];
+        node.text.position = CGPointMake((node.frame.size.width/2)-(node.text.frame.size.width/2),(node.frame.size.height/2) -(node.text.frame.size.height/2));
+        node.text.color = [UIColor whiteColor];
         node.color = color;
         node.pressedColor = pressedColor;
         node.strokeColor = node.color;
         node.fillColor = node.color;
         node.glowWidth = 1;
         node.enabled = NO;
+        [node setUserInteractionEnabled:YES];
     }
     return node;
 }
@@ -111,12 +118,12 @@
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-    UITouch *touch = [touches anyObject];
-    CGPoint touchPoint = [touch locationInNode:self.parent];
-    
     if(!self.enabled){
         return;
     }
+    
+    UITouch *touch = [touches anyObject];
+    CGPoint touchPoint = [touch locationInNode:self.parent];
     
     [self setSelected:NO];
     
