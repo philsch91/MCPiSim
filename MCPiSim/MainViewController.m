@@ -25,6 +25,7 @@
     NSLog(@"final size: %f",size.height);
     PSMainScene *scene = [PSMainScene sceneWithSize:size];
     
+    self.view = [[SKView alloc] initWithFrame:self.view.frame];
     SKView *view = (SKView *)self.view;
     [view presentScene:scene];
     view.showsNodeCount = YES;
@@ -43,7 +44,7 @@
     [button setTouchDown:self selector:@selector(test)];
 }
 
--(void)test{
+- (void)test{
     NSLog(@"test");
 }
 

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		174BD992224B789A00C7D48A /* MonteCarloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 174BD991224B789A00C7D48A /* MonteCarloKit.framework */; };
-		174BD993224B789A00C7D48A /* MonteCarloKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 174BD991224B789A00C7D48A /* MonteCarloKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		17A5DDB623239DD800E429F3 /* MonteCarloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */; };
+		17A5DDB723239DD800E429F3 /* MonteCarloKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		17CA466A221027C000E7A6BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA4669221027C000E7A6BD /* AppDelegate.m */; };
 		17CA466D221027C000E7A6BD /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA466C221027C000E7A6BD /* MainViewController.m */; };
 		17CA4670221027C000E7A6BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CA466E221027C000E7A6BD /* Main.storyboard */; };
@@ -22,13 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		174BD994224B789A00C7D48A /* Embed Frameworks */ = {
+		17A5DDB823239DD800E429F3 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				174BD993224B789A00C7D48A /* MonteCarloKit.framework in Embed Frameworks */,
+				17A5DDB723239DD800E429F3 /* MonteCarloKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,7 +36,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		174BD991224B789A00C7D48A /* MonteCarloKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MonteCarloKit.framework; sourceTree = "<group>"; };
+		17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MonteCarloKit.framework; sourceTree = "<group>"; };
 		17CA4665221027C000E7A6BD /* MCPiSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPiSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CA4668221027C000E7A6BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17CA4669221027C000E7A6BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17CA4681221029C100E7A6BD /* SpriteKit.framework in Frameworks */,
-				174BD992224B789A00C7D48A /* MonteCarloKit.framework in Frameworks */,
+				17A5DDB623239DD800E429F3 /* MonteCarloKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,7 +72,7 @@
 		17CA465C221027C000E7A6BD = {
 			isa = PBXGroup;
 			children = (
-				174BD991224B789A00C7D48A /* MonteCarloKit.framework */,
+				17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */,
 				17CA4667221027C000E7A6BD /* MCPiSim */,
 				17CA4666221027C000E7A6BD /* Products */,
 				17CA467F221029C100E7A6BD /* Frameworks */,
@@ -143,7 +143,7 @@
 				17CA4661221027C000E7A6BD /* Sources */,
 				17CA4662221027C000E7A6BD /* Frameworks */,
 				17CA4663221027C000E7A6BD /* Resources */,
-				174BD994224B789A00C7D48A /* Embed Frameworks */,
+				17A5DDB823239DD800E429F3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

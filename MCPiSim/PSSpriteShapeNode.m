@@ -16,7 +16,7 @@
     return self;
 }
 
-+(instancetype)shapeNodeWithCircleOfRadius:(CGFloat)radius AndColor:(SKColor *)color{
++ (instancetype)shapeNodeWithCircleOfRadius:(CGFloat)radius AndColor:(SKColor *)color{
     //SKShapeNode *shapeNode = [SKShapeNode shapeNodeWithCircleOfRadius:radius];
     PSSpriteShapeNode *shapeNode = [super shapeNodeWithCircleOfRadius:radius];
     shapeNode.strokeColor = color;
