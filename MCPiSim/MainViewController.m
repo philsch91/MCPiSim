@@ -79,8 +79,8 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         while(!self.stopFlag){
-            NSLog(@"%g",self.mainScene.squareShapeNode.frame.size.height);
-            NSLog(@"%g",self.mainScene.squareShapeNode.frame.size.width);
+            NSLog(@"%g",self.mainScene.squareRect.size.height);
+            NSLog(@"%g",self.mainScene.squareRect.size.width);
             
             //double x = arc4random_uniform(10)+1;
             //double y = arc4random_uniform(10)+1;

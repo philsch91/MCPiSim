@@ -6,9 +6,9 @@
 //  Copyright © 2019 Philipp Schunker. All rights reserved.
 //
 
-#import "PSSpriteShapeNode.h"
+#import "SpriteShapeNode.h"
 
-@implementation PSSpriteShapeNode
+@implementation SpriteShapeNode
 
 - (instancetype)init{
     self = [super init];
@@ -18,7 +18,7 @@
 
 + (instancetype)shapeNodeWithCircleOfRadius:(CGFloat)radius AndColor:(SKColor *)color{
     //SKShapeNode *shapeNode = [SKShapeNode shapeNodeWithCircleOfRadius:radius];
-    PSSpriteShapeNode *shapeNode = [super shapeNodeWithCircleOfRadius:radius];
+    SpriteShapeNode *shapeNode = [super shapeNodeWithCircleOfRadius:radius];
     shapeNode.strokeColor = color;
     shapeNode.fillColor = color;
     shapeNode.glowWidth = 1;
