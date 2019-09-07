@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) SKColor *color;
 @property (nonatomic, strong) SKColor *pressedColor;
 
-@property (nonatomic, strong) SKLabelNode *text;
+@property (nonatomic, strong) SKLabelNode *label;
 
 @property (nonatomic, weak) NSObject *targetTouchUp;
 @property (nonatomic, weak) NSObject *targetTouchUpInside;

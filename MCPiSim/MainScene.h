@@ -10,13 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PSMainScene : SKScene
+@interface MainScene : SKScene
 
 //+(instancetype)scene:(CGSize)size;
 
 @property (nonatomic, strong) SKShapeNode *squareShapeNode;
 @property (nonatomic, strong) SKShapeNode *circleShapeNode;
 @property (nonatomic, assign) CGRect squareRect;
+
+@property (nonatomic, strong) SKLabelNode *piLabelNode;
 
 @end
 

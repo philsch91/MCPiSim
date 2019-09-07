@@ -28,19 +28,22 @@
         return node;
     }
     
-    node.text = [SKLabelNode labelNodeWithText:text];
-    [node addChild:node.text];
-    [node.text setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter];
-    [node.text setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
-    //node.text.position = node.position;
-    node.text.fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
-    node.text.fontSize = [UIFont buttonFontSize];
+    SKLabelNode *labelNode = [SKLabelNode labelNodeWithText:text];
+    [labelNode setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter];
+    [labelNode setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
+    //labelNode.position = node.position;
+    labelNode.fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
+    labelNode.fontSize = [UIFont buttonFontSize];
     /*
-    node.text.position = CGPointMake((node.frame.size.width/2)-(node.text.frame.size.width/2),
+    labelNode.position = CGPointMake((node.frame.size.width/2)-(node.text.frame.size.width/2),
                                      (node.frame.size.height/2)-(node.text.frame.size.height/2));
     */
-    node.text.position = CGPointMake((node.frame.size.width/2),(node.frame.size.height/2));
-    node.text.color = [UIColor whiteColor];
+    labelNode.position = CGPointMake((node.frame.size.width/2),(node.frame.size.height/2));
+    //labelNode.position = node.frame.origin;
+    labelNode.color = [UIColor whiteColor];
+    
+    node.label = labelNode;
+    [node addChild:node.label];
     
     node.color = [UIColor colorWithRed:0.0f/255.0f green:122.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
     node.pressedColor = [UIColor colorWithRed:50.0f/255.0f green:200.0f/255.0f blue:250.0f/255.0f alpha:1.0f];
@@ -56,7 +59,11 @@
 
 +(instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor{
     PSButtonShapeNode *node = [[self class] buttonWithText:text];
+    node.color = color;
     node.pressedColor = pressedColor;
+    
+    node.fillColor = node.color;
+    node.strokeColor = node.color;
     
     return node;
 }
@@ -145,7 +152,7 @@
 #pragma mark - NSObject
 
 - (NSString *)description{
-    NSString *strDescription = [NSString stringWithFormat:@"<%@ text:%@ color:%@ pressedColor:%@>",[self class], self.text, self.color, self.pressedColor];
+    NSString *strDescription = [NSString stringWithFormat:@"<%@ text:%@ color:%@ pressedColor:%@>",[self class], self.label, self.color, self.pressedColor];
     strDescription = [strDescription stringByAppendingString:@" subclass of "];
     strDescription = [strDescription stringByAppendingString:[super description]];
     return strDescription;

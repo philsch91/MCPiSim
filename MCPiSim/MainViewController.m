@@ -23,7 +23,8 @@
     //NSLog(@"safeArea.bottom: %f",self.view.safeAreaInsets.bottom);
     size.height = size.height-self.view.safeAreaInsets.bottom;
     NSLog(@"final size: %f",size.height);
-    PSMainScene *scene = [PSMainScene sceneWithSize:size];
+    MainScene *scene = [MainScene sceneWithSize:size];
+    self.mainScene = scene;
     
     self.view = [[SKView alloc] initWithFrame:self.view.frame];
     SKView *view = (SKView *)self.view;
@@ -31,20 +32,69 @@
     view.showsNodeCount = YES;
     view.showsFPS = YES;
     
-    //PSButtonShapeNode *button = [PSButtonShapeNode buttonWithText:@"Test" color:[UIColor blueColor] pressedColor:[UIColor redColor]];
-    PSButtonShapeNode *button = [PSButtonShapeNode buttonWithText:@"Test"];
-    NSLog(@"%@",button);
-    NSLog(@"%d",button.enabled);
-    button.position = CGPointMake((scene.frame.size.width/2), (scene.frame.size.height/3));
+    PSButtonShapeNode *startButton = [PSButtonShapeNode buttonWithText:@"Start"];
+    NSLog(@"%@",startButton);
+    NSLog(@"%d",startButton.enabled);
+    startButton.position = CGPointMake((scene.frame.size.width/2), (scene.frame.size.height/4));
     
-    [scene addChild:button];
+    [startButton setEnabled:YES];
+    NSLog(@"%d",startButton.enabled);
+    [startButton setTouchDown:self selector:@selector(startButtonTapped)];
     
-    [button setEnabled:YES];
-    NSLog(@"%d",button.enabled);
-    [button setTouchDown:self selector:@selector(test)];
+    self.startButtonNode = startButton;
+    [scene addChild:startButton];
+    
+    PSButtonShapeNode *resetButton = [PSButtonShapeNode buttonWithText:@"Reset" color:[UIColor redColor] pressedColor:[UIColor orangeColor]];
+    CGPoint point = startButton.position;
+    point.x = startButton.position.x + resetButton.frame.size.width/2;
+    point.y -= resetButton.frame.size.height;
+    resetButton.position = point;
+    
+    [resetButton setEnabled:YES];
+    [resetButton setTouchDown:self selector:@selector(resetButtonTapped)];
+    
+    self.resetButtonNode = resetButton;
+    [scene addChild:resetButton];
+    
+    MCPiState *piState = [[MCPiState alloc] init];
+    self.piState = piState;
+    
+    self.stopFlag = YES;
 }
 
-- (void)test{
+- (void)startButtonTapped{
+    //NSLog(@"test");
+    //Square A = 2r*2r = 4*r^2
+    //Circle A = M_PI*r^2
+    //4*r^2/M_PI*r^2 = M_PI/4
+    //M_PI/4*4 = M_PI
+    self.stopFlag = !self.stopFlag;
+    
+    NSString *text = @"Start";
+    if([self.startButtonNode.label.text isEqualToString:@"Start"]){
+        text = @"Stop";
+    }
+    
+    self.startButtonNode.label.text = text;
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
+        while(!self.stopFlag){
+            NSLog(@"%g",self.mainScene.squareShapeNode.frame.size.height);
+            NSLog(@"%g",self.mainScene.squareShapeNode.frame.size.width);
+            
+            //double x = arc4random_uniform(10)+1;
+            //double y = arc4random_uniform(10)+1;
+            
+            //srand48(time(0));
+            //double r = drand48();
+            
+            self.piState.denominator++;
+            NSLog(@"%g",self.piState.denominator);
+        }
+    });
+}
+
+- (void)resetButtonTapped{
     NSLog(@"test");
 }
 

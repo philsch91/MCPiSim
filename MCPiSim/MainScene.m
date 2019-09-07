@@ -6,9 +6,9 @@
 //  Copyright © 2019 Philipp Schunker. All rights reserved.
 //
 
-#import "PSMainScene.h"
+#import "MainScene.h"
 
-@implementation PSMainScene
+@implementation MainScene
 
 /*
 +(instancetype)scene:(CGSize)size{
@@ -20,6 +20,15 @@
     [super didMoveToView:view];
     [self addSquare];
     [self addCircle];
+    
+    SKLabelNode *piLabelNode = [SKLabelNode labelNodeWithText:@"0.0"];
+    //CGPoint squareShapeNodeCenter = self.squareShapeNode.position;
+    //NSLog(@"x: %f",squareShapeNodeCenter.x);
+    //NSLog(@"y: %f",squareShapeNodeCenter.y);
+    
+    piLabelNode.position = CGPointMake(self.scene.frame.size.width/2, self.squareShapeNode.position.y+self.squareShapeNode.frame.size.height-(piLabelNode.frame.size.height*2));
+    self.piLabelNode = piLabelNode;
+    [self.scene addChild:self.piLabelNode];
 }
 
 -(void)addSquare{
