@@ -1,0 +1,5 @@
+#.gitignore
+
+
+#general exceptions
+.DS_Store
