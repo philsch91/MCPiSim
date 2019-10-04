@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL selected;
 @property (nonatomic, strong) SKColor *color;
 @property (nonatomic, strong) SKColor *pressedColor;
+@property (nonatomic, strong) SKColor *textColor;
 
 @property (nonatomic, strong) SKLabelNode *label;
 

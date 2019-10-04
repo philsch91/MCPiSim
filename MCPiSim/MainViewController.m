@@ -44,6 +44,8 @@
     self.startButtonNode = startButton;
     [scene addChild:startButton];
     
+    [self.startButtonNode setTextColor:[SKColor blackColor]];
+    
     PSButtonShapeNode *resetButton = [PSButtonShapeNode buttonWithText:@"Reset" color:[UIColor redColor] pressedColor:[UIColor orangeColor]];
     CGPoint point = startButton.position;
     point.x = startButton.position.x + resetButton.frame.size.width/2;
@@ -76,6 +78,7 @@
     }
     
     self.startButtonNode.label.text = text;
+    //TODO: [self.startButtonNode setText:@"test"];
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         while(!self.stopFlag){

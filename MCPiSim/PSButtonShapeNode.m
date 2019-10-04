@@ -32,8 +32,19 @@
     [labelNode setHorizontalAlignmentMode:SKLabelHorizontalAlignmentModeCenter];
     [labelNode setVerticalAlignmentMode:SKLabelVerticalAlignmentModeCenter];
     //labelNode.position = node.position;
-    labelNode.fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
+    /*
+    NSString *fontName = [[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontName];
+    fontName = [fontName substringFromIndex:1];
+    NSLog(@"%@",fontName);
+    labelNode.fontName = fontName; */
     labelNode.fontSize = [UIFont buttonFontSize];
+    
+    //NSLog(@"%@",[[UIFont systemFontOfSize:[UIFont buttonFontSize]] fontDescriptor]);
+    //NSLog(@"%@",UIFontDescriptorSystemDesignDefault);
+    
+    NSAttributedString *attrString = [[NSAttributedString alloc] initWithString:text attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:[UIFont buttonFontSize]],NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    labelNode.attributedText = attrString;
+    
     /*
     labelNode.position = CGPointMake((node.frame.size.width/2)-(node.text.frame.size.width/2),
                                      (node.frame.size.height/2)-(node.text.frame.size.height/2));
@@ -88,6 +99,19 @@
 -(void)setPosition:(CGPoint)pos{
     pos.x = pos.x-(self.frame.size.width/2);
     [super setPosition:pos];
+}
+
+-(void)setTextColor:(SKColor *)textColor{
+    SKLabelNode *labelNode = self.label;
+    NSAttributedString *attrStr = labelNode.attributedText;
+    NSDictionary *attributes = [attrStr attributesAtIndex:0 longestEffectiveRange:nil inRange:NSMakeRange(0, attrStr.length)];
+    /*
+    for (NSString *str in attributes.allKeys) {
+        NSLog(@"%@",str);
+    }*/
+    NSMutableDictionary *newAttributes = [attributes mutableCopy];
+    [newAttributes setValue:textColor forKey:@"NSColor"];
+    self.label.attributedText = [[NSAttributedString alloc] initWithString:attrStr.string attributes:newAttributes];
 }
 
 #pragma mark - UIResponder
