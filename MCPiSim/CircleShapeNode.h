@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SpriteShapeNode : SKShapeNode
+@interface CircleShapeNode : SKShapeNode
 
 -(instancetype)init;
 +(instancetype)shapeNodeWithCircleOfRadius:(CGFloat)radius AndColor:(SKColor *)color;

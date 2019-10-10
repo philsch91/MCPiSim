@@ -69,7 +69,7 @@
     //Square A = 2r*2r = 4*r^2
     //Circle A = M_PI*r^2
     //4*r^2/M_PI*r^2 = M_PI/4
-    //M_PI/4*4 = M_PI
+    //(M_PI/4)*4 = M_PI
     self.stopFlag = !self.stopFlag;
     
     NSString *text = @"Start";
@@ -82,17 +82,50 @@
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         while(!self.stopFlag){
-            NSLog(@"%g",self.mainScene.squareRect.size.height);
+            //NSLog(@"%g",self.mainScene.squareRect.size.height);
             NSLog(@"%g",self.mainScene.squareRect.size.width);
             
+            int upperBound = (self.mainScene.squareRect.size.width/2);
+            
+            //between 1 and n
             //double x = arc4random_uniform(10)+1;
             //double y = arc4random_uniform(10)+1;
+            
+            //between 0 and (n-1)
+            int x = arc4random_uniform(upperBound+1);
+            int y = arc4random_uniform(upperBound+1);
+            
+            NSLog(@"x: %d",x);
+            NSLog(@"y: %d",y);
             
             //srand48(time(0));
             //double r = drand48();
             
+            //a^2+b^2=c^2
+            
+            int a = pow(x,2);
+            int b = pow(y,2);
+            int c = sqrt(a+b);
+            
+            //NSLog(@"a: %d",a);
+            //NSLog(@"b: %d",b);
+            NSLog(@"c: %d",c);
+            
+            UIColor *color = [UIColor redColor];
+            
+            if(c <= upperBound){
+                self.piState.numerator++;
+                color = [UIColor whiteColor];
+            }
+            
+            [self.mainScene addPoint:x y:y color:color];
+            
             self.piState.denominator++;
-            NSLog(@"%g",self.piState.denominator);
+            double pi = (self.piState.numerator/self.piState.denominator)*4;
+            
+            NSString *piStr = [NSString stringWithFormat:@"%g",pi];
+            self.mainScene.piLabelNode.text = piStr;
+            //NSLog(@"%g",self.piState.denominator);
         }
     });
 }

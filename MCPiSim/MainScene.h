@@ -7,18 +7,20 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "CircleShapeNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MainScene : SKScene
-
-//+(instancetype)scene:(CGSize)size;
 
 @property (nonatomic, strong) SKShapeNode *squareShapeNode;
 @property (nonatomic, strong) SKShapeNode *circleShapeNode;
 @property (nonatomic, assign) CGRect squareRect;
 
 @property (nonatomic, strong) SKLabelNode *piLabelNode;
+
+//+(instancetype)scene:(CGSize)size;
+-(void)addPoint:(double)x y:(double)y color:(UIColor *)color;
 
 @end
 

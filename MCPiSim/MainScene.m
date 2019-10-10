@@ -48,4 +48,12 @@
     [self.scene addChild:_circleShapeNode];
 }
 
+-(void)addPoint:(double)x y:(double)y color:(UIColor *)color{
+    x += _squareShapeNode.position.x;
+    y += _squareShapeNode.position.y;
+    SKShapeNode *shape = [CircleShapeNode shapeNodeWithCircleOfRadius:1 AndColor:color];
+    shape.position = CGPointMake(x, y);
+    [_squareShapeNode addChild:shape];
+}
+
 @end
