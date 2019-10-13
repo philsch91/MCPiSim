@@ -85,7 +85,8 @@
             //NSLog(@"%g",self.mainScene.squareRect.size.height);
             NSLog(@"%g",self.mainScene.squareRect.size.width);
             
-            int upperBound = (self.mainScene.squareRect.size.width/2);
+            //int upperBound = (self.mainScene.squareRect.size.width/2);
+            int upperBound = self.mainScene.squareShapeNode.frame.size.width/2;
             
             //between 1 and n
             //double x = arc4random_uniform(10)+1;

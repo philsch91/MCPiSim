@@ -34,9 +34,11 @@
 -(void)addSquare{
     double offset = 50;
     double edgeLength = self.scene.frame.size.width - offset;
+    
     _squareRect = CGRectMake((self.scene.frame.origin.x + offset)/2,
                              (self.scene.frame.origin.y + edgeLength),
                              edgeLength, edgeLength);
+    
     _squareShapeNode = [SKShapeNode shapeNodeWithRect:_squareRect];
     _squareShapeNode.lineWidth = 6;
     [self.scene addChild:_squareShapeNode];
@@ -49,11 +51,16 @@
 }
 
 -(void)addPoint:(double)x y:(double)y color:(UIColor *)color{
-    x += _squareShapeNode.position.x;
-    y += _squareShapeNode.position.y;
-    SKShapeNode *shape = [CircleShapeNode shapeNodeWithCircleOfRadius:1 AndColor:color];
-    shape.position = CGPointMake(x, y);
-    [_squareShapeNode addChild:shape];
+    NSLog(@"_squareShapeNode.position.x: %g",_squareShapeNode.position.x);
+    NSLog(@"_squareShapeNode.frame.origin.x: %g",_squareShapeNode.frame.origin.x);
+    NSLog(@"_squareShapeNode.frame.size.width: %g",_squareShapeNode.frame.size.width);
+    
+    x += _squareShapeNode.frame.origin.x;
+    y += _squareShapeNode.frame.origin.y;
+    
+    SKShapeNode *node = [CircleShapeNode shapeNodeWithCircleOfRadius:1 AndColor:color];
+    node.position = CGPointMake(x, y);
+    [_squareShapeNode addChild:node];
 }
 
 @end
