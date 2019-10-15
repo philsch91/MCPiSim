@@ -17,7 +17,7 @@
 		17CA4675221027C300E7A6BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17CA4673221027C300E7A6BD /* LaunchScreen.storyboard */; };
 		17CA4678221027C300E7A6BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA4677221027C300E7A6BD /* main.m */; };
 		17CA4681221029C100E7A6BD /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17CA4680221029C100E7A6BD /* SpriteKit.framework */; };
-		17CA468422102A3800E7A6BD /* SpriteShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA468322102A3800E7A6BD /* SpriteShapeNode.m */; };
+		17CA468422102A3800E7A6BD /* CircleShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA468322102A3800E7A6BD /* CircleShapeNode.m */; };
 		17CA46882210307C00E7A6BD /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA46872210307C00E7A6BD /* MainScene.m */; };
 		17CA468B221859B600E7A6BD /* PSButtonShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA468A221859B600E7A6BD /* PSButtonShapeNode.m */; };
 /* End PBXBuildFile section */
@@ -51,8 +51,8 @@
 		17CA4676221027C300E7A6BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17CA4677221027C300E7A6BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		17CA4680221029C100E7A6BD /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
-		17CA468222102A3800E7A6BD /* SpriteShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteShapeNode.h; sourceTree = "<group>"; };
-		17CA468322102A3800E7A6BD /* SpriteShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteShapeNode.m; sourceTree = "<group>"; };
+		17CA468222102A3800E7A6BD /* CircleShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CircleShapeNode.h; sourceTree = "<group>"; };
+		17CA468322102A3800E7A6BD /* CircleShapeNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleShapeNode.m; sourceTree = "<group>"; };
 		17CA46862210307C00E7A6BD /* MainScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		17CA46872210307C00E7A6BD /* MainScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		17CA4689221859B600E7A6BD /* PSButtonShapeNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSButtonShapeNode.h; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		17CA467E2210284100E7A6BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				17CA468222102A3800E7A6BD /* SpriteShapeNode.h */,
-				17CA468322102A3800E7A6BD /* SpriteShapeNode.m */,
+				17CA468222102A3800E7A6BD /* CircleShapeNode.h */,
+				17CA468322102A3800E7A6BD /* CircleShapeNode.m */,
 				17A5DDBA2323E32000E429F3 /* MCPiState.h */,
 				17A5DDBB2323E32000E429F3 /* MCPiState.m */,
 			);
@@ -223,7 +223,7 @@
 				17CA46882210307C00E7A6BD /* MainScene.m in Sources */,
 				17A5DDBC2323E32000E429F3 /* MCPiState.m in Sources */,
 				17CA466A221027C000E7A6BD /* AppDelegate.m in Sources */,
-				17CA468422102A3800E7A6BD /* SpriteShapeNode.m in Sources */,
+				17CA468422102A3800E7A6BD /* CircleShapeNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

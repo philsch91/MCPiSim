@@ -21,7 +21,7 @@
     CircleShapeNode *shapeNode = [super shapeNodeWithCircleOfRadius:radius];
     shapeNode.strokeColor = color;
     shapeNode.fillColor = color;
-    shapeNode.glowWidth = 1;
+    //shapeNode.glowWidth = 1;
     return shapeNode;
 }
 

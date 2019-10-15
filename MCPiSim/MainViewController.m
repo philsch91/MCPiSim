@@ -83,18 +83,18 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
         while(!self.stopFlag){
             //NSLog(@"%g",self.mainScene.squareRect.size.height);
-            NSLog(@"%g",self.mainScene.squareRect.size.width);
+            //NSLog(@"%g",self.mainScene.squareRect.size.width);
             
-            //int upperBound = (self.mainScene.squareRect.size.width/2);
-            int upperBound = self.mainScene.squareShapeNode.frame.size.width/2;
+            //int upperBound = self.mainScene.squareRect.size.width/2;
+            int upperBound = self.mainScene.squareShapeNode.frame.size.width;
             
             //between 1 and n
-            //double x = arc4random_uniform(10)+1;
-            //double y = arc4random_uniform(10)+1;
-            
+            //double x = arc4random_uniform(n)+1;
             //between 0 and (n-1)
-            int x = arc4random_uniform(upperBound+1);
-            int y = arc4random_uniform(upperBound+1);
+            //double y = arc4random_uniform(n);
+            
+            int x = arc4random_uniform(upperBound+1) - self.mainScene.squareRect.size.width/2;
+            int y = arc4random_uniform(upperBound+1) - self.mainScene.squareRect.size.height/2;
             
             NSLog(@"x: %d",x);
             NSLog(@"y: %d",y);
@@ -114,7 +114,7 @@
             
             UIColor *color = [UIColor redColor];
             
-            if(c <= upperBound){
+            if(c <= upperBound/2){
                 self.piState.numerator++;
                 color = [UIColor whiteColor];
             }
@@ -133,6 +133,9 @@
 
 - (void)resetButtonTapped{
     NSLog(@"test");
+    [self.mainScene.squareShapeNode removeAllChildren];
+    self.piState = [[MCPiState alloc] init];
+    self.mainScene.piLabelNode.text = @"0.0";
 }
 
 

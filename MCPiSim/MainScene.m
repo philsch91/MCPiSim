@@ -51,12 +51,12 @@
 }
 
 -(void)addPoint:(double)x y:(double)y color:(UIColor *)color{
-    NSLog(@"_squareShapeNode.position.x: %g",_squareShapeNode.position.x);
+    //NSLog(@"_squareShapeNode.position.x: %g",_squareShapeNode.position.x);
     NSLog(@"_squareShapeNode.frame.origin.x: %g",_squareShapeNode.frame.origin.x);
     NSLog(@"_squareShapeNode.frame.size.width: %g",_squareShapeNode.frame.size.width);
     
-    x += _squareShapeNode.frame.origin.x;
-    y += _squareShapeNode.frame.origin.y;
+    x += _squareRect.origin.x + _squareRect.size.width/2;
+    y += _squareRect.origin.y + _squareRect.size.height/2;
     
     SKShapeNode *node = [CircleShapeNode shapeNodeWithCircleOfRadius:1 AndColor:color];
     node.position = CGPointMake(x, y);
