@@ -28,8 +28,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) SEL selectorTouchUpInside;
 @property (nonatomic, assign) SEL selectorTouchDown;
 
-+ (instancetype)buttonWithText:(NSString *)text;
-+ (instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor;
++(instancetype)buttonWithText:(NSString *)text;
++(instancetype)buttonWithText:(NSString *)text color:(SKColor *)color pressedColor:(SKColor *)pressedColor;
 
 -(void)setTouchUp:(NSObject *)target selector:(SEL)selector;
 -(void)setTouchUpInside:(NSObject *)target selector:(SEL)selector;

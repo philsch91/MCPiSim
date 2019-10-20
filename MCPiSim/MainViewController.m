@@ -58,7 +58,7 @@
     self.resetButtonNode = resetButton;
     [scene addChild:resetButton];
     
-    MCPiState *piState = [[MCPiState alloc] init];
+    MCState *piState = [[MCState alloc] init];
     self.piState = piState;
     
     self.stopFlag = YES;
@@ -134,7 +134,7 @@
 - (void)resetButtonTapped{
     NSLog(@"test");
     [self.mainScene.squareShapeNode removeAllChildren];
-    self.piState = [[MCPiState alloc] init];
+    self.piState = [[MCState alloc] init];
     self.mainScene.piLabelNode.text = @"0.0";
 }
 
