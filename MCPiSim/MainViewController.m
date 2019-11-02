@@ -68,7 +68,7 @@
     //NSLog(@"test");
     //Square A = 2r*2r = 4*r^2
     //Circle A = M_PI*r^2
-    //4*r^2/M_PI*r^2 = M_PI/4
+    //M_PI*r^2/4*r^2 = M_PI/4
     //(M_PI/4)*4 = M_PI
     self.stopFlag = !self.stopFlag;
     
