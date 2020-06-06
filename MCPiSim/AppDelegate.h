@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 
 #import "MainViewController.h"
+#import "SceneViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIPageViewControllerDataSource>
 
 @property (strong, nonatomic) UIWindow *window;
+@property (nonatomic, strong) NSArray<UIViewController *> *viewControllers;
 
 @end
 

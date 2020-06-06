@@ -7,6 +7,7 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+
 #import "CircleShapeNode.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -20,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) SKLabelNode *piLabelNode;
 
 //+(instancetype)scene:(CGSize)size;
--(void)addPoint:(double)x y:(double)y color:(UIColor *)color;
+-(void)addNode:(double)x y:(double)y color:(UIColor *)color;
 
 @end
 

@@ -50,10 +50,10 @@
     [self.scene addChild:_circleShapeNode];
 }
 
--(void)addPoint:(double)x y:(double)y color:(UIColor *)color{
+-(void)addNode:(double)x y:(double)y color:(UIColor *)color{
     //NSLog(@"_squareShapeNode.position.x: %g",_squareShapeNode.position.x);
-    NSLog(@"_squareShapeNode.frame.origin.x: %g",_squareShapeNode.frame.origin.x);
-    NSLog(@"_squareShapeNode.frame.size.width: %g",_squareShapeNode.frame.size.width);
+    NSLog(@"_squareShapeNode.frame.origin.x: %g", _squareShapeNode.frame.origin.x);
+    NSLog(@"_squareShapeNode.frame.size.width: %g", _squareShapeNode.frame.size.width);
     
     x += _squareRect.origin.x + _squareRect.size.width/2;
     y += _squareRect.origin.y + _squareRect.size.height/2;

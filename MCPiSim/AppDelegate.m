@@ -19,7 +19,15 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UIViewController *mainViewController = [[MainViewController alloc] init];
-    self.window.rootViewController = mainViewController;
+    UIViewController *sceneViewController = [[SceneViewController alloc] init];
+    
+    self.viewControllers = @[mainViewController, sceneViewController];
+    
+    UIPageViewController *pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    pageViewController.dataSource = self;
+    [pageViewController setViewControllers:@[[self.viewControllers firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    
+    self.window.rootViewController = pageViewController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
@@ -59,6 +67,38 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - UIPageViewControllerDataSource
+
+- (nullable UIViewController *)pageViewController:(nonnull UIPageViewController *)pageViewController viewControllerBeforeViewController:(nonnull UIViewController *)viewController {
+    NSUInteger viewControllerIndex = [self.viewControllers indexOfObject:viewController];
+    if(viewControllerIndex == NSNotFound){
+        return nil;
+    }
+    
+    viewControllerIndex--;
+    
+    if(viewControllerIndex < 0 || viewControllerIndex >= [self.viewControllers count]){
+        return nil;
+    }
+    
+    return [self.viewControllers objectAtIndex:viewControllerIndex];
+}
+
+- (nullable UIViewController *)pageViewController:(nonnull UIPageViewController *)pageViewController viewControllerAfterViewController:(nonnull UIViewController *)viewController {
+    NSUInteger viewControllerIndex = [self.viewControllers indexOfObject:viewController];
+    if(viewControllerIndex == NSNotFound){
+        return nil;
+    }
+    
+    viewControllerIndex++;
+    
+    if(viewControllerIndex >= [self.viewControllers count]){
+        return nil;
+    }
+    
+    return [self.viewControllers objectAtIndex:viewControllerIndex];
 }
 
 
