@@ -21,7 +21,8 @@
     UIButton *startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     startButton.frame = CGRectMake(0, 0, 44, 44);
     [startButton setTitle:@"Start" forState:UIControlStateNormal];
-    startButton.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.height/4));
+    //startButton.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.height/4));
+    startButton.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.width) + startButton.frame.size.height + 50);
     
     [startButton setEnabled:YES];
     [startButton addTarget:self action:@selector(startButtonTapped) forControlEvents:UIControlEventTouchUpInside];
@@ -48,6 +49,18 @@
     
     self.resetButton = resetButton;
     [self.view addSubview:resetButton];
+    
+    double offset = 50;
+    
+    CGRect square = self.view.frame;
+    square.size.height = square.size.width;
+    square.origin.y += offset;
+    
+    RectangleView *squareView = [[RectangleView alloc] initWithFrame:square];
+    squareView.backgroundColor = [UIColor clearColor];
+    self.squareView = squareView;
+    
+    [self.view addSubview:self.squareView];
 }
 
 - (void)startButtonTapped{
