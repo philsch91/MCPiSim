@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.view.backgroundColor = [UIColor whiteColor];
     double offset = 50;
     
     CGRect square = self.view.frame;
@@ -34,7 +35,7 @@
     
     CircleView *circleView = [[CircleView alloc] initWithFrame:square];
     circleView.lineWidth = 5.0;
-    circleView.strokeColor = [UIColor redColor];
+    circleView.strokeColor = [UIColor blueColor];
     circleView.backgroundColor = [UIColor clearColor];
     self.circleView = circleView;
     
@@ -206,9 +207,22 @@
 
 - (void)resetButtonTapped{
     NSLog(@"resetButtonTapped");
-    //[self.mainScene.squareShapeNode removeAllChildren];
+    NSLog(@"squareView.layer.sublayers.count: %ld", self.squareView.layer.sublayers.count);
+    
+    /*
+    NSArray<CALayer *> *squareViewSublayers = [self.squareView.layer.sublayers copy];
+    
+    for (CALayer *layer in squareViewSublayers) {
+        [layer removeFromSuperlayer];
+    }
+    */
+    
+    while ([self.squareView.layer.sublayers lastObject] != nil) {
+        [[self.squareView.layer.sublayers lastObject] removeFromSuperlayer];
+    }
+    
     self.piState = [[MCState alloc] init];
-    //self.mainScene.piLabelNode.text = @"0.0";
+    self.piLabel.text = @"0.0";
 }
 
 /*

@@ -28,7 +28,8 @@
     [pageViewController setViewControllers:@[[self.viewControllers firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
     self.window.rootViewController = pageViewController;
-    //self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor whiteColor];   //default UIViewController.view.backgroundColor for this UIWindow
+    
     if (@available(iOS 13.0, *)) {
         self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
     }
