@@ -18,16 +18,21 @@
     CGContextRef context = UIGraphicsGetCurrentContext();
     
     // Draw background
-    CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
+    CGContextSetFillColorWithColor(context, self.backgroundColor.CGColor);
+    //CGContextSetFillColorWithColor(context, [UIColor clearColor].CGColor);
     //CGContextSetFillColorWithColor(context, [[UIColor whiteColor] colorWithAlphaComponent:0.8].CGColor);
     //CGContextSetRGBFillColor(context, 1.0, 1.0, 1.0, 0.0);   //transparent color
     CGContextFillRect(context, boundsRect);
     //CGContextFillRect(context, rect);
     
     // Draw the window 'frame'
-    CGContextSetStrokeColorWithColor(context, [UIColor blueColor].CGColor);
+    if(_strokeColor == nil) {
+        _strokeColor = [UIColor clearColor];
+    }
+    
+    CGContextSetStrokeColorWithColor(context, self.strokeColor.CGColor);
     //CGContextSetRGBStrokeColor(context, 0.0, 0.0, 0.0, 0.5);
-    CGContextSetLineWidth(context, 10);
+    CGContextSetLineWidth(context, self.lineWidth);
     //CGContextStrokeRect(context, self.maskRect);
     CGContextStrokeRect(context, boundsRect);    //draw the border
     //CGContextStrokeRect(context, rect);          //draw the border

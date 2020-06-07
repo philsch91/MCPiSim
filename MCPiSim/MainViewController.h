@@ -11,6 +11,7 @@
 
 #import <MonteCarloKit/MonteCarloKit.h>
 #import "RectangleView.h"
+#import "CircleView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UILabel *piLabel;
 
 @property (nonatomic, strong) RectangleView *squareView;
-@property (nonatomic, strong) UIView *circleView;
+@property (nonatomic, strong) CircleView *circleView;
 
 @property (nonatomic, strong) MCState *piState;
 @property (nonatomic, assign) BOOL stopFlag;

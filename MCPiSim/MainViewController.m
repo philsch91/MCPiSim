@@ -57,10 +57,25 @@
     square.origin.y += offset;
     
     RectangleView *squareView = [[RectangleView alloc] initWithFrame:square];
+    squareView.lineWidth = 5.0;
+    squareView.strokeColor = [UIColor blueColor];
     squareView.backgroundColor = [UIColor clearColor];
     self.squareView = squareView;
     
     [self.view addSubview:self.squareView];
+    
+    CircleView *circleView = [[CircleView alloc] initWithFrame:square];
+    circleView.lineWidth = 5.0;
+    circleView.strokeColor = [UIColor redColor];
+    circleView.backgroundColor = [UIColor clearColor];
+    self.circleView = circleView;
+    
+    [self.view addSubview:self.circleView];
+    
+    MCState *piState = [[MCState alloc] init];
+    self.piState = piState;
+    
+    self.stopFlag = YES;
 }
 
 - (void)startButtonTapped{
@@ -79,25 +94,26 @@
     
     [self.startButton setTitle:text forState:UIControlStateNormal];
     
+    CGRect square = self.squareView.frame;
+    CGRect bounds = self.view.bounds;
+    
+    NSLog(@"square.size.width %f", square.size.width);
+    NSLog(@"square.size.height %f", square.size.height);
+    
+    int upperBound = square.size.width;
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        /*
         while(!self.stopFlag){
-            //NSLog(@"%g",self.mainScene.squareRect.size.height);
-            //NSLog(@"%g",self.mainScene.squareRect.size.width);
-            
-            //int upperBound = self.mainScene.squareRect.size.width/2;
-            int upperBound = self.mainScene.squareShapeNode.frame.size.width;
-            
             //between 1 and n
             //double x = arc4random_uniform(n)+1;
             //between 0 and (n-1)
             //double y = arc4random_uniform(n);
             
-            int x = arc4random_uniform(upperBound+1) - self.mainScene.squareRect.size.width/2;
-            int y = arc4random_uniform(upperBound+1) - self.mainScene.squareRect.size.height/2;
+            int x = arc4random_uniform(upperBound+1) - square.size.width/2;
+            int y = arc4random_uniform(upperBound+1) - square.size.height/2;
             
-            NSLog(@"x: %d",x);
-            NSLog(@"y: %d",y);
+            //NSLog(@"x: %d",x);
+            //NSLog(@"y: %d",y);
             
             //srand48(time(0));
             //double r = drand48();
@@ -112,28 +128,32 @@
             //NSLog(@"b: %d",b);
             NSLog(@"c: %d",c);
             
-            CGColorRef color = [UIColor redColor].CGColor;
+            CGColorRef colorRef = [UIColor redColor].CGColor;
             
             if(c <= upperBound/2){
                 self.piState.numerator++;
-                color = [UIColor whiteColor].CGColor;
+                colorRef = [UIColor blackColor].CGColor;
             }
             
-            x += self.mainScene.squareRect.origin.x + self.mainScene.squareRect.size.width/2;
-            y += self.mainScene.squareRect.origin.y + self.mainScene.squareRect.size.height/2;
+            x += square.size.width/2;
+            y += square.size.height/2;
             
+            NSLog(@"x: %d",x);
+            NSLog(@"y: %d",y);
+            
+            /*
             dispatch_sync(dispatch_get_main_queue(), ^{
-                CGRect bounds = self.view.bounds;
-                UIGraphicsBeginImageContextWithOptions(bounds.size, NO, [UIScreen mainScreen].scale);
-                CGContextRef contextRef = UIGraphicsGetCurrentContext();
-                CGContextSetFillColorWithColor(contextRef, color);
-                CGContextFillRect(contextRef, CGRectMake(x, y, 1, 1));
-                //CGContextAddEllipseInRect(Context,(CGRectMake (x, y, 1, 1));
-                //CGContextDrawPath(Context, kCGPathFill);
-                //CGContextStrokePath(Context);
-                //UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
-                UIGraphicsEndImageContext();
-            });
+            }); */
+            
+            UIGraphicsBeginImageContextWithOptions(bounds.size, NO, [UIScreen mainScreen].scale);
+            CGContextRef contextRef = UIGraphicsGetCurrentContext();
+            CGContextSetFillColorWithColor(contextRef, colorRef);
+            CGContextFillRect(contextRef, CGRectMake(x, y, 3, 3));
+            ////CGContextAddEllipseInRect(Context,(CGRectMake (x, y, 1, 1));
+            ////CGContextDrawPath(Context, kCGPathFill);
+            ////CGContextStrokePath(Context);
+            ////UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
+            UIGraphicsEndImageContext();
             
             self.piState.denominator++;
             double pi = (self.piState.numerator/self.piState.denominator)*4;
@@ -141,7 +161,7 @@
             NSString *piStr = [NSString stringWithFormat:@"%g",pi];
             self.piLabel.text = piStr;
             //NSLog(@"%g",self.piState.denominator);
-        } */
+        }
     });
 }
 
