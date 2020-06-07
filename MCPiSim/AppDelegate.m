@@ -28,7 +28,11 @@
     [pageViewController setViewControllers:@[[self.viewControllers firstObject]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
     
     self.window.rootViewController = pageViewController;
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 13.0, *)) {
+        self.window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
+    
     [self.window makeKeyAndVisible];
     
     //application.isIdleTimerDisabled = YES;

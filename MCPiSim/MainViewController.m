@@ -18,38 +18,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIButton *startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    startButton.frame = CGRectMake(0, 0, 44, 44);
-    [startButton setTitle:@"Start" forState:UIControlStateNormal];
-    //startButton.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.height/4));
-    startButton.center = CGPointMake((self.view.frame.size.width/2), (self.view.frame.size.width) + startButton.frame.size.height + 50);
-    
-    [startButton setEnabled:YES];
-    [startButton addTarget:self action:@selector(startButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    
-    NSLog(@"%@", startButton);
-    NSLog(@"%d", startButton.enabled);
-    
-    self.startButton = startButton;
-    [self.view addSubview:startButton];
-    
-    UIButton *resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    resetButton.frame = CGRectMake(0, 0, 44, 44);
-    [resetButton setTitle:@"Reset" forState:UIControlStateNormal];
-    CGPoint point = startButton.center;
-    point.x = startButton.center.x;
-    point.y += startButton.frame.size.height;
-    resetButton.center = point;
-    
-    [resetButton setEnabled:YES];
-    [resetButton addTarget:self action:@selector(resetButtonTapped) forControlEvents:UIControlEventTouchUpInside];
-    
-    NSLog(@"%@", resetButton);
-    NSLog(@"%d", resetButton.enabled);
-    
-    self.resetButton = resetButton;
-    [self.view addSubview:resetButton];
-    
     double offset = 50;
     
     CGRect square = self.view.frame;
@@ -71,6 +39,56 @@
     self.circleView = circleView;
     
     [self.view addSubview:self.circleView];
+    
+    //piLabel
+    
+    UILabel *piLabel = [[UILabel alloc] init];
+    piLabel.frame = CGRectMake(0, 0, 64, 44);
+    piLabel.text = @"0.0";
+    piLabel.textAlignment = NSTextAlignmentCenter;
+    piLabel.center = CGPointMake((self.view.frame.size.width/2), self.view.frame.size.width + piLabel.frame.size.height + offset);
+    
+    self.piLabel = piLabel;
+    [self.view addSubview:self.piLabel];
+    
+    //startButton
+    
+    UIButton *startButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    startButton.frame = CGRectMake(0, 0, 44, 44);
+    [startButton setTitle:@"Start" forState:UIControlStateNormal];
+    //startButton.center = CGPointMake((self.view.frame.size.width/2), self.view.frame.size.width + startButton.frame.size.height + offset);
+    CGPoint point = piLabel.center;
+    point.x = piLabel.center.x;
+    point.y += startButton.frame.size.height;
+    startButton.center = point;
+    
+    [startButton setEnabled:YES];
+    [startButton addTarget:self action:@selector(startButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSLog(@"%@", startButton);
+    NSLog(@"%d", startButton.enabled);
+    
+    self.startButton = startButton;
+    [self.view addSubview:startButton];
+    
+    //resetButton
+    
+    UIButton *resetButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    resetButton.frame = CGRectMake(0, 0, 44, 44);
+    [resetButton setTitle:@"Reset" forState:UIControlStateNormal];
+    CGPoint resetButtonCenterPoint = startButton.center;
+    resetButtonCenterPoint.x = startButton.center.x;
+    resetButtonCenterPoint.y += startButton.frame.size.height;
+    resetButton.center = resetButtonCenterPoint;
+    
+    [resetButton setEnabled:YES];
+    [resetButton addTarget:self action:@selector(resetButtonTapped) forControlEvents:UIControlEventTouchUpInside];
+    
+    NSLog(@"%@", resetButton);
+    NSLog(@"%d", resetButton.enabled);
+    
+    self.resetButton = resetButton;
+    [self.view addSubview:resetButton];
     
     MCState *piState = [[MCState alloc] init];
     self.piState = piState;
@@ -95,7 +113,7 @@
     [self.startButton setTitle:text forState:UIControlStateNormal];
     
     CGRect square = self.squareView.frame;
-    CGRect bounds = self.view.bounds;
+    //CGRect bounds = self.squareView.bounds;
     
     NSLog(@"square.size.width %f", square.size.width);
     NSLog(@"square.size.height %f", square.size.height);
@@ -141,26 +159,47 @@
             NSLog(@"x: %d",x);
             NSLog(@"y: %d",y);
             
+            ///not working
             /*
-            dispatch_sync(dispatch_get_main_queue(), ^{
-            }); */
-            
             UIGraphicsBeginImageContextWithOptions(bounds.size, NO, [UIScreen mainScreen].scale);
             CGContextRef contextRef = UIGraphicsGetCurrentContext();
-            CGContextSetFillColorWithColor(contextRef, colorRef);
-            CGContextFillRect(contextRef, CGRectMake(x, y, 3, 3));
-            ////CGContextAddEllipseInRect(Context,(CGRectMake (x, y, 1, 1));
-            ////CGContextDrawPath(Context, kCGPathFill);
-            ////CGContextStrokePath(Context);
-            ////UIImage *screenshotImage = UIGraphicsGetImageFromCurrentImageContext();
+            //CGContextSetFillColorWithColor(contextRef, colorRef);
+            //CGContextFillRect(contextRef, CGRectMake(x, y, 3, 3));
+            
+            CGContextSetStrokeColorWithColor(contextRef, colorRef);
+            CGContextAddEllipseInRect(contextRef,CGRectMake(x, y, 3, 3));
+            CGContextDrawPath(contextRef, kCGPathFill);
+            CGContextStrokePath(contextRef);
+            UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
             
+            CALayer *layer = [[CALayer alloc] init];
+            layer.frame = square;
+            [layer setContents:viewImage];
+            [self.squareView.layer addSublayer:layer];
+            
+            //[self.squareView.layer setContents:viewImage];
+            */
+            
+            UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(x, y, 3.0, 3.0)];
+            CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
+            shapeLayer.path = path.CGPath;
+            shapeLayer.fillColor = colorRef;
+            shapeLayer.strokeColor = colorRef;
+            //[self.squareView.layer addSublayer:shapeLayer];   //needs a call of [self.squareView.layer setNeedsDisplay]
+            
             self.piState.denominator++;
+            //NSLog(@"%g",self.piState.denominator);
             double pi = (self.piState.numerator/self.piState.denominator)*4;
             
             NSString *piStr = [NSString stringWithFormat:@"%g",pi];
-            self.piLabel.text = piStr;
-            //NSLog(@"%g",self.piState.denominator);
+            
+            //dispatch_async seems to coalesce updates and therefore be faster
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                [self.squareView.layer addSublayer:shapeLayer];
+                //[self.squareView.layer setNeedsDisplay];
+                self.piLabel.text = piStr;
+            });
         }
     });
 }
