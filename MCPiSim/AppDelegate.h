@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #import "MainViewController.h"
+#import "SecondViewController.h"
 #import "SceneViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UIPageViewControllerDataSource>

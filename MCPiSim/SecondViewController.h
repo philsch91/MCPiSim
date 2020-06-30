@@ -15,7 +15,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MainViewController : UIViewController
+@interface SecondViewController : UIViewController
 
 @property (nonatomic, strong) UIButton *startButton;
 @property (nonatomic, strong) UIButton *resetButton;

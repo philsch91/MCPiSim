@@ -19,9 +19,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UIViewController *mainViewController = [[MainViewController alloc] init];
+    UIViewController *secondViewController = [[SecondViewController alloc] init];
     UIViewController *sceneViewController = [[SceneViewController alloc] init];
     
-    self.viewControllers = @[mainViewController, sceneViewController];
+    self.viewControllers = @[mainViewController, secondViewController, sceneViewController];
     
     UIPageViewController *pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     pageViewController.dataSource = self;

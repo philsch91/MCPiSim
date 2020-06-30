@@ -6,13 +6,13 @@
 //  Copyright © 2020 Philipp Schunker. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "SecondViewController.h"
 
-@interface MainViewController ()
+@interface SecondViewController ()
 
 @end
 
-@implementation MainViewController
+@implementation SecondViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -95,7 +95,7 @@
     
     UILabel *titleLabel = [[UILabel alloc] init];
     titleLabel.frame = CGRectMake(0, 0, 64, 44);
-    titleLabel.text = @"Main";
+    titleLabel.text = @"Second";
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.center = CGPointMake((self.view.frame.size.width/2), self.view.frame.size.width + titleLabel.frame.size.height * 1.5);
     
@@ -125,7 +125,7 @@
     [self.startButton setTitle:text forState:UIControlStateNormal];
     
     CGRect square = self.squareView.frame;
-    CGRect bounds = self.squareView.bounds;
+    //CGRect bounds = self.squareView.bounds;
     
     NSLog(@"square.size.width %f", square.size.width);
     NSLog(@"square.size.height %f", square.size.height);
@@ -171,35 +171,14 @@
             NSLog(@"x: %d",x);
             NSLog(@"y: %d",y);
             
-            // UIKit/CoreGraphics/CoreAnimation
+            // UIKit/CoreAnimation
             
-            UIGraphicsBeginImageContextWithOptions(bounds.size, NO, [UIScreen mainScreen].scale);
-            CGContextRef contextRef = UIGraphicsGetCurrentContext();
-            //NSLog(@"%@", contextRef);
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                [self.squareView.layer renderInContext:contextRef];
-            });
-            
-            //rectangle
-            CGContextSetFillColorWithColor(contextRef, colorRef);
-            //CGContextFillRect(contextRef, CGRectMake(x, y, 3, 3));
-            
-            //circle/point
-            CGContextAddEllipseInRect(contextRef, CGRectMake(x, y, 3, 3));
-            CGContextDrawPath(contextRef, kCGPathFill);
-            //optional stroke
-            CGContextSetStrokeColorWithColor(contextRef, colorRef);
-            CGContextStrokePath(contextRef);
-            
-            UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-            //NSLog(@"%@", image);
-            UIGraphicsEndImageContext();
-            
-            /*
-            CALayer *layer = [[CALayer alloc] init];
-            layer.frame = square;
-            [layer setContents:(id)image.CGImage];
-            */
+            UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(x, y, 3.0, 3.0)];
+            CAShapeLayer *shapeLayer = [[CAShapeLayer alloc] init];
+            shapeLayer.path = path.CGPath;
+            shapeLayer.fillColor = colorRef;
+            shapeLayer.strokeColor = colorRef;
+            //[self.squareView.layer addSublayer:shapeLayer];   //needs a call of [self.squareView.layer setNeedsDisplay]
             
             self.piState.denominator++;
             //NSLog(@"%g",self.piState.denominator);
@@ -209,9 +188,8 @@
             
             //dispatch_async seems to coalesce updates and therefore be faster
             dispatch_sync(dispatch_get_main_queue(), ^{
-                [self.squareView.layer setContents:(id)image.CGImage];
-                //[self.squareView.layer addSublayer:layer];
-                ////[self.squareView.layer setNeedsDisplay];
+                [self.squareView.layer addSublayer:shapeLayer];
+                //[self.squareView.layer setNeedsDisplay];
                 self.piLabel.text = piStr;
             });
         }
