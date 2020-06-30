@@ -14,6 +14,7 @@
 		179F3497235CB40700D6F077 /* PSSpriteKitUtils.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 179F3495235CB40600D6F077 /* PSSpriteKitUtils.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		17A5DDB623239DD800E429F3 /* MonteCarloKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */; };
 		17A5DDB723239DD800E429F3 /* MonteCarloKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		17BA20A224AB798100E949F8 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17BA20A124AB798100E949F8 /* SecondViewController.m */; };
 		17CA466A221027C000E7A6BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA4669221027C000E7A6BD /* AppDelegate.m */; };
 		17CA466D221027C000E7A6BD /* SceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17CA466C221027C000E7A6BD /* SceneViewController.m */; };
 		17CA4672221027C300E7A6BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17CA4671221027C300E7A6BD /* Assets.xcassets */; };
@@ -48,6 +49,8 @@
 		17453F5B248CD62C004C0CA0 /* CircleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CircleView.m; sourceTree = "<group>"; };
 		179F3495235CB40600D6F077 /* PSSpriteKitUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PSSpriteKitUtils.framework; sourceTree = "<group>"; };
 		17A5DDB523239DD800E429F3 /* MonteCarloKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MonteCarloKit.framework; sourceTree = "<group>"; };
+		17BA20A024AB798100E949F8 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		17BA20A124AB798100E949F8 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		17CA4665221027C000E7A6BD /* MCPiSim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCPiSim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17CA4668221027C000E7A6BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		17CA4669221027C000E7A6BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				17CA466C221027C000E7A6BD /* SceneViewController.m */,
 				1732D6A7248B88D500849EC1 /* MainViewController.h */,
 				1732D6A8248B88D500849EC1 /* MainViewController.m */,
+				17BA20A024AB798100E949F8 /* SecondViewController.h */,
+				17BA20A124AB798100E949F8 /* SecondViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17BA20A224AB798100E949F8 /* SecondViewController.m in Sources */,
 				17CA466D221027C000E7A6BD /* SceneViewController.m in Sources */,
 				1732D6A9248B88D500849EC1 /* MainViewController.m in Sources */,
 				17CA4678221027C300E7A6BD /* main.m in Sources */,
